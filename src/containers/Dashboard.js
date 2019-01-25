@@ -10,8 +10,8 @@ class Dashboard extends Component {
                     <div id="top">
                         <a className="rocketrides" href="/"></a>
                         <div className="links">
-                            <a href='/pilots/dashboard'> Dashboard</a>
-                            <a href='/pilots/logout'> Logout</a>
+                            <a href='/dashboard'> Dashboard</a>
+                            <a href='/logout'> Logout</a>
                         </div>
                     </div>
                     <div className="user">

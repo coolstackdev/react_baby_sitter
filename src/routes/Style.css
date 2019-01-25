@@ -5,3 +5,12 @@
 section.rides {
     margin: 30px auto;
 }
+
+div.checkmark {
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+div.checkmark a.button {
+    width: 250px;
+}
