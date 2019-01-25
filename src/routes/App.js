@@ -18,7 +18,7 @@ class App extends Component {
                     <Switch>
                         <Route path="/" component={Home} exact />
                         <Route path="/login" component={Login} />
-                        <Route path="/signup" component={() => { window.location = 'https://connect.stripe.com/express/oauth/authorize?client_id=ca_EO14Jeva2Bn16Qfppss9hAaJZyf0CvEn'; return null; }} />
+                        <Route path="/signup" component={() => { window.location = 'https://connect.stripe.com/express/oauth/authorize?client_id=ca_ECquTp9gS6YSvJnsQfLMM3iXREOy9BzN'; return null; }} />
                         <Route path="/dashboard" component={Dashboard} />
                         <Route path="/done" component={Done} />
                     </Switch>
