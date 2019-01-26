@@ -22,10 +22,7 @@ export default class SetupPayment extends Component {
 
         sessionService.saveSession({ status: status })
             .then(() => {
-                console.log('SetupPayment component mounted, session value: ');
-                sessionService.loadSession
-                    .then(currentSession => console.log(currentSession))
-                    .catch(err => console.log(err))
+                console.log('session is registered');
             });
 
         let parameters = {

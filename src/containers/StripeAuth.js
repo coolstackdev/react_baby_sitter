@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { sessionService } from 'redux-react-session';
 
 var querystring = require('querystring');
 
@@ -15,10 +16,13 @@ export default class StripeAuth extends Component {
         const code = params.get('code');
         const state = params.get('state');
 
-        console.log(this.props.location);
-        console.log(params);
-        console.log('code' + code);
-        console.log('state' + state);
+        console.log(code + "," + state);
+
+        sessionService.loadSession
+            .then(currentSession => {
+                console.log(currentSession);
+            })
+            .catch(err => console.log(err));
 
     }
 
