@@ -6,12 +6,16 @@ export default class StripeAuth extends Component {
 
     constructor(props) {
         super(props);
-
-        var code = querystring.parse(this.props.location.search, { ignoreQueryPrefix: true }).code;
-        console.log(code);
     }
 
     componentDidMount() {
+        var queryString = querystring.parse(this.props.location.search);
+        var code = queryString.code;
+        var state = qeuryString.state;
+
+        console.log(code);
+        console.log(state);
+
         console.log('StripeAuth component');
     }
 
