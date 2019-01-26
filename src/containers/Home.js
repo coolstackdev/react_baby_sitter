@@ -14,7 +14,7 @@ class Home extends Component {
                         <div className="pilots">
                             <h1>Get ready for take off.</h1>
                             <h2>Babysitter is the world’s leading air travel platform. <br /> Join our elite team of pilots and help people travel faster than ever.</h2>
-                            <a className="button" href="/signup">Setup Payment</a>
+                            <a className="button" href="/authorize">Setup Payment</a>
                         </div>
                     </div>
                 </header>

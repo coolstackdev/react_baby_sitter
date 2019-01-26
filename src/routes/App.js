@@ -8,6 +8,8 @@ import Home from '../containers/Home';
 import Login from '../containers/Login';
 import Done from '../containers/Done';
 import Dashboard from '../containers/Dashboard';
+import SetupPayment from '../containers/SetupPayment';
+import StripeAuth from '../containers/StripeAuth';
 
 class App extends Component {
 
@@ -18,8 +20,9 @@ class App extends Component {
                     <Switch>
                         <Route path="/" component={Home} exact />
                         <Route path="/login" component={Login} />
-                        <Route path="/signup" component={() => { window.location = 'https://connect.stripe.com/express/oauth/authorize?client_id=ca_ECquTp9gS6YSvJnsQfLMM3iXREOy9BzN'; return null; }} />
+                        <Route path="/authorize" component={SetupPayment} />
                         <Route path="/dashboard" component={Dashboard} />
+                        <Route path="/token" component={StripeAuth} />
                         <Route path="/done" component={Done} />
                     </Switch>
                 </BrowserRouter>
