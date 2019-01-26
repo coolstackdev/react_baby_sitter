@@ -41,12 +41,7 @@ export default class StripeAuth extends Component {
 
                 axios.post(config.tokenUri, params)
                     .then(
-                        res => {
-                            console.log(res.data)
-
-                            // var stripeAccountId = body.stripe_user_id;
-
-                        }
+                        res => console.log(res.data)
                     );
 
 
