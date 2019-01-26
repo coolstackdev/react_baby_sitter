@@ -13,10 +13,11 @@ export default class StripeAuth extends Component {
         var code = params.code;
         var state = params.state;
 
-        console.log(code);
-        console.log(state);
+        console.log(this.props.location);
+        console.log(params);
+        console.log('code' + code);
+        console.log('state' + state);
 
-        console.log('StripeAuth component');
     }
 
     render() {
