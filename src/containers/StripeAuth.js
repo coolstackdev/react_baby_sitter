@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { sessionService } from 'redux-react-session';
+import axios from 'axios';
+import { config } from '../config';
 
 export default class StripeAuth extends Component {
 
@@ -26,7 +28,29 @@ export default class StripeAuth extends Component {
         sessionService.loadSession().then(result => {
             if (result.status == state) {
                 this.state.isMatched = true;
-                console.log('is matched');
+                console.log('status key is matched');
+
+                var params = {
+                    form: {
+                        grant_type: 'authorization_code',
+                        client_id: config.stripe.clientId,
+                        client_secret: config.stripe.secretKey,
+                        code: code
+                    },
+                    json: true
+                };
+
+                axios.post(config.tokenUri, params)
+                    .then(
+                        res => {
+                            console.log(res.data)
+
+                            // var stripeAccountId = body.stripe_user_id;
+
+                        }
+                    );
+
+
             } else {
                 console.log('not matched');
             }
