@@ -31,7 +31,6 @@ export default class StripeAuth extends Component {
                 // if matched, send second request to stripe for getting stripe account id for Babysitters
                 var params = {
                     grant_type: 'authorization_code',
-                    client_id: config.clientId,
                     client_secret: config.secretKey,
                     code: code
                 };
