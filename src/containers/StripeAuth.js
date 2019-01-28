@@ -36,9 +36,15 @@ export default class StripeAuth extends Component {
                     code: code
                 };
 
-                var url = "https://us-central1-babysitter-28752.cloudfunctions.net/stripeAuth?" + querystring.stringify(params);
-                window.location = url;
+                var url = "https://us-central1-babysitter-28752.cloudfunctions.net/stripeAuth";
 
+                axios.post(url, params)
+                    .then(function (response) {
+                        console.log(response);
+                    })
+                    .catch(function (error) {
+                        console.log('Error');
+                    });
 
             } else {
                 console.log('not matched');
