@@ -35,7 +35,7 @@ export default class StripeAuth extends Component {
                     code: code
                 };
 
-                axios.post(config.tokenUri, params)
+                axios.post(config.tokenUri, params, { useCredentails: true })
                     .then(
                         res => console.log(res.data)
                     );
