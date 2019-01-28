@@ -30,12 +30,11 @@ export default class StripeAuth extends Component {
 
                 // if matched, send second request to stripe for getting stripe account id for Babysitters
                 var params = {
-                    grant_type: 'authorization_code',
-                    client_secret: config.secretKey,
+                    id: 'test_sitter_id',
                     code: code
                 };
 
-                axios.post(config.tokenUri, params, { useCredentails: true })
+                axios.post("https://us-central1-babysitter-28752.cloudfunctions.net/stripeAuth", params)
                     .then(
                         res => console.log(res.data)
                     );
