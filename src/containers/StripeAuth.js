@@ -3,6 +3,8 @@ import { sessionService } from 'redux-react-session';
 import axios from 'axios';
 import { config } from '../config';
 
+var querystring = require('querystring');
+
 export default class StripeAuth extends Component {
 
     constructor(props) {
@@ -34,10 +36,8 @@ export default class StripeAuth extends Component {
                     code: code
                 };
 
-                axios.post("https://us-central1-babysitter-28752.cloudfunctions.net/stripeAuth", params)
-                    .then(
-                        res => console.log(res.data)
-                    );
+                var url = "https://us-central1-babysitter-28752.cloudfunctions.net/stripeAuth?" + querystring.stringify(params);
+                window.location = url;
 
 
             } else {
