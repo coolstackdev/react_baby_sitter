@@ -46,14 +46,10 @@ export default class StripeAuth extends Component {
                 .then(function (response) {
                     console.log(response);
                     if (response.data.success == 1) {
-                        this.setState({
-                            redirect: true
-                        })
+                        this.props.history.push("/done");
                     } else {
                         alert(response.data.msg);
-                        this.setState({
-                            redirect: false
-                        })
+                        this.props.history.push("/");
                     }
                 })
                 .catch(function (error) {
@@ -65,10 +61,6 @@ export default class StripeAuth extends Component {
     }
 
     render() {
-        return (
-            <div>
-                {this.renderRedirect()}
-            </div>
-        )
+        return null;
     }
 }
