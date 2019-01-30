@@ -13,6 +13,17 @@ export default class StripeAuth extends Component {
         }
     }
 
+    async redirectPage(url, data) {
+        const response = await axios.post(url, data);
+
+        if (response.data.success == 1) {
+            this.props.history.push("/done");
+        } else {
+            alert(response.data.msg);
+            this.props.history.push("/");
+        }
+    }
+
     componentWillMount() {
 
         // get query string from redirected uri
@@ -35,18 +46,7 @@ export default class StripeAuth extends Component {
 
             var url = "https://us-central1-lightning-bug-sitters.cloudfunctions.net/stripeAuth";
 
-            try {
-                const response = await axios.post(url, data);
-
-                if (response.data.success == 1) {
-                    this.props.history.push("/done");
-                } else {
-                    alert(response.data.msg);
-                    this.props.history.push("/");
-                }
-            } catch (e) {
-                console.log(error);
-            }
+            this.redirectPage(url, data);
 
             // axios.post(url, data)
             //     .then(function (response) {
@@ -63,6 +63,7 @@ export default class StripeAuth extends Component {
             //     });
         } else {
             console.log('not matched');
+            this.props.history.push('/');
         }
     }
 
