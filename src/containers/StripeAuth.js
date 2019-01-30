@@ -36,9 +36,15 @@ export default class StripeAuth extends Component {
             axios.post(url, data)
                 .then(function (response) {
                     console.log(response);
+                    if (response.data.success == 1) {
+                        return <Redirect to='/done' />
+                    } else {
+                        alert(response.data.msg);
+                        return <Redirect to="/" />
+                    }
                 })
                 .catch(function (error) {
-                    console.log('Error');
+                    console.log(error);
                 });
 
         } else {
