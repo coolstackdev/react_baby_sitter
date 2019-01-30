@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
+import { sessionService } from 'redux-react-session';
 
 class Home extends Component {
+
+    componentDidMount() {
+        var uid = this.props.match.params.uid;
+
+        sessionService.saveSession({ uid: uid })
+            .then(() => {
+                console.log('session uid: ' + uid);
+            });
+    }
 
     render() {
         return (

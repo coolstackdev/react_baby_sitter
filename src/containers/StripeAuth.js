@@ -17,8 +17,6 @@ export default class StripeAuth extends Component {
 
     componentDidMount() {
 
-        const uid = 'gTzywumo1GTY9423VdpVYmr9rTg1'; // babysitter uid, this must be from session
-
         // get query string from redirected uri
         const search = this.props.location.search;
         const params = new URLSearchParams(search);
@@ -27,6 +25,8 @@ export default class StripeAuth extends Component {
 
         // get session and check if two state matched
         sessionService.loadSession().then(result => {
+
+            const uid = result.uid;
 
             if (result.status == state) {
                 this.state.isMatched = true;
