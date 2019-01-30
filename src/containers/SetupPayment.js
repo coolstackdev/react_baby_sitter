@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
-import { sessionService } from 'redux-react-session';
-
+import { Component } from 'react';
 import { config } from '../config';
 
 var querystring = require('querystring');
@@ -20,10 +18,7 @@ export default class SetupPayment extends Component {
             status: status
         }
 
-        sessionService.saveSession(...{ status: status })
-            .then(() => {
-                console.log('session status: ' + status);
-            });
+        localStorage.setItem('status', status);
 
         let parameters = {
             client_id: config.clientId,

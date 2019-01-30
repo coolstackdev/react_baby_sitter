@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { sessionService } from 'redux-react-session';
 
 class Home extends Component {
 
@@ -8,10 +7,7 @@ class Home extends Component {
         const params = new URLSearchParams(search);
         const uid = params.get('uid');
 
-        sessionService.saveSession({ uid: uid })
-            .then(() => {
-                console.log('session uid: ' + uid);
-            });
+        localStorage.setItem('uid', uid);
     }
 
     render() {

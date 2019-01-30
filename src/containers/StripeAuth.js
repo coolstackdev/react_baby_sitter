@@ -1,9 +1,5 @@
-import React, { Component } from 'react';
-import { sessionService } from 'redux-react-session';
+import { Component } from 'react';
 import axios from 'axios';
-import { config } from '../config';
-
-var querystring = require('querystring');
 
 export default class StripeAuth extends Component {
 
@@ -23,39 +19,31 @@ export default class StripeAuth extends Component {
         const code = params.get('code');
         const state = params.get('state');
 
-        // get session and check if two state matched
-        sessionService.loadSession().then(result => {
+        const uid = localStorage.getItem('uid');
 
-            console.log('load session');
-            console.log(result);
+        if (localStorage.getItem('status') == state) {
+            this.state.isMatched = true;
+            console.log('status key is matched');
 
-            const uid = result.uid;
+            // if matched, send second request to stripe for getting stripe account id for Babysitters
+            var params = {
+                uid: uid,
+                code: code
+            };
 
-            if (result.status == state) {
-                this.state.isMatched = true;
-                console.log('status key is matched');
+            var url = "https://us-central1-lightning-bug-sitters.cloudfunctions.net/stripeAuth";
 
-                // if matched, send second request to stripe for getting stripe account id for Babysitters
-                var params = {
-                    uid: uid,
-                    code: code
-                };
+            axios.post(url, params)
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log('Error');
+                });
 
-                var url = "https://us-central1-lightning-bug-sitters.cloudfunctions.net/stripeAuth";
-
-                axios.post(url, params)
-                    .then(function (response) {
-                        console.log(response);
-                    })
-                    .catch(function (error) {
-                        console.log('Error');
-                    });
-
-            } else {
-                console.log('not matched');
-            }
-
-        });
+        } else {
+            console.log('not matched');
+        }
 
     }
 
