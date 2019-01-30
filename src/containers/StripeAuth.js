@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 
 export default class StripeAuth extends Component {
@@ -7,11 +7,20 @@ export default class StripeAuth extends Component {
         super(props);
 
         this.state = {
-            isMatched: false
+            isMatched: false,
+            redirect: false
         }
     }
 
-    componentDidMount() {
+    renderRedirect = () => {
+        if (this.state.redirect) {
+            return "<Redirect to='/done' />";
+        } else {
+            return "<Redirect to='/' />";
+        }
+    }
+
+    componentWillMount() {
 
         // get query string from redirected uri
         const search = this.props.location.search;
@@ -37,23 +46,29 @@ export default class StripeAuth extends Component {
                 .then(function (response) {
                     console.log(response);
                     if (response.data.success == 1) {
-                        return <Redirect to='/done' />
+                        this.setState({
+                            redirect: true
+                        })
                     } else {
                         alert(response.data.msg);
-                        return <Redirect to="/" />
+                        this.setState({
+                            redirect: false
+                        })
                     }
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
-
         } else {
             console.log('not matched');
         }
-
     }
 
     render() {
-        return null;
+        return (
+            <div>
+                {this.renderRedirect()}
+            </div>
+        )
     }
 }
