@@ -26,14 +26,14 @@ export default class StripeAuth extends Component {
             console.log('status key is matched');
 
             // if matched, send second request to stripe for getting stripe account id for Babysitters
-            var params = {
+            var data = {
                 uid: uid,
                 code: code
             };
 
             var url = "https://us-central1-lightning-bug-sitters.cloudfunctions.net/stripeAuth";
 
-            axios.post(url, params)
+            axios.post(url, data)
                 .then(function (response) {
                     console.log(response);
                 })
