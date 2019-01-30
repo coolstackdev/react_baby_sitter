@@ -32,7 +32,7 @@ export default class StripeAuth extends Component {
 
                 // if matched, send second request to stripe for getting stripe account id for Babysitters
                 var params = {
-                    id: 'test_sitter_id',
+                    uid: 'test_sitter_id',
                     code: code
                 };
 
