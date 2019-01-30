@@ -17,7 +17,7 @@ export default class StripeAuth extends Component {
 
     componentDidMount() {
 
-        const uid = 'Zy1iSykgFAha20HYswxySv62C2F3'; // babysitter uid, this must be from session
+        const uid = 'gTzywumo1GTY9423VdpVYmr9rTg1'; // babysitter uid, this must be from session
 
         // get query string from redirected uri
         const search = this.props.location.search;
