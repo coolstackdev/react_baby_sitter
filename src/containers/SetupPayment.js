@@ -20,7 +20,7 @@ export default class SetupPayment extends Component {
             status: status
         }
 
-        sessionService.saveSession({ status: status })
+        sessionService.saveSession(...{ status: status })
             .then(() => {
                 console.log('session status: ' + status);
             });
