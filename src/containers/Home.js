@@ -4,7 +4,9 @@ import { sessionService } from 'redux-react-session';
 class Home extends Component {
 
     componentDidMount() {
-        var uid = this.props.match.params.uid;
+        const search = this.props.location.search;
+        const params = new URLSearchParams(search);
+        const uid = params.get('uid');
 
         sessionService.saveSession({ uid: uid })
             .then(() => {
