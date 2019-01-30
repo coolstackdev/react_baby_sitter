@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import actions from '../actions';
 
 export default class StripeAuth extends Component {
 
@@ -9,14 +10,6 @@ export default class StripeAuth extends Component {
         this.state = {
             isMatched: false,
             redirect: false
-        }
-    }
-
-    renderRedirect = () => {
-        if (this.state.redirect) {
-            return "<Redirect to='/done' />";
-        } else {
-            return "<Redirect to='/' />";
         }
     }
 
@@ -42,19 +35,32 @@ export default class StripeAuth extends Component {
 
             var url = "https://us-central1-lightning-bug-sitters.cloudfunctions.net/stripeAuth";
 
-            axios.post(url, data)
-                .then(function (response) {
-                    console.log(response);
-                    if (response.data.success == 1) {
-                        this.props.history.push("/done");
-                    } else {
-                        alert(response.data.msg);
-                        this.props.history.push("/");
-                    }
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
+            try {
+                const response = await axios.post(url, data);
+
+                if (response.data.success == 1) {
+                    this.props.history.push("/done");
+                } else {
+                    alert(response.data.msg);
+                    this.props.history.push("/");
+                }
+            } catch (e) {
+                console.log(error);
+            }
+
+            // axios.post(url, data)
+            //     .then(function (response) {
+            //         console.log(response);
+            //         if (response.data.success == 1) {
+            //             this.props.history.push("/done");
+            //         } else {
+            //             alert(response.data.msg);
+            //             this.props.history.push("/");
+            //         }
+            //     })
+            //     .catch(function (error) {
+            //         console.log(error);
+            //     });
         } else {
             console.log('not matched');
         }

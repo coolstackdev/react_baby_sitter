@@ -1,5 +1,5 @@
 import { takeLatest } from 'redux-saga/effects';
-import { LOGIN_REQUEST } from "../actions/types";
+import { LOGIN_REQUEST } from "../actions/ActionTypes";
 import { loginSaga } from './userSaga';
 
 export function* rootSaga() {
