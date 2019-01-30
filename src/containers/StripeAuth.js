@@ -26,6 +26,9 @@ export default class StripeAuth extends Component {
         // get session and check if two state matched
         sessionService.loadSession().then(result => {
 
+            console.log('load session');
+            console.log(result);
+
             const uid = result.uid;
 
             if (result.status == state) {
