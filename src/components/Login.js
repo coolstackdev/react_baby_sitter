@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import app from "./Firebase/firebase";
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Link } from 'react-router-dom';
+
+import app from "./Firebase/firebase";
 import * as userActions from '../store/modules/user';
 
 class Login extends Component {
@@ -49,8 +51,8 @@ class Login extends Component {
             <div>
                 <header>
                     <div id="top">
-                        <a className="rocketrides" href="/"></a>
-                        <a className="arrow" href="/login">Login</a>
+                        <Link className="rocketrides" to="/"></Link>
+                        <Link className="arrow" to="/login">Login</Link>
                     </div>
                     <div className="title">
                         <h1>Log into your babysitter account</h1>

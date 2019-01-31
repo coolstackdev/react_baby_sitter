@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Done extends Component {
 
@@ -7,9 +8,9 @@ class Done extends Component {
             <div>
                 <header>
                     <div id="top">
-                        <a className="rocketrides" href="/"></a>
+                        <Link className="rocketrides" to="/"></Link>
                         <div className="links">
-                            <a href='/login'>Login</a>
+                            <Link to="/login">Login</Link>
                         </div>
                     </div>
                     <div className="intro">

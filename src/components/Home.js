@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Home = ({
     authenticated,
@@ -8,15 +9,15 @@ const Home = ({
         <div>
             <header>
                 <div id="top">
-                    <a className="rocketrides" href="/"></a>
+                    <Link className="rocketrides" to="/"></Link>
 
                     {authenticated ? (
                         <div className="links">
-                            <a href='/dashboard'> Dashboard</a>
+                            <Link to="/dashboard">Dashboard</Link>
                             <a onClick={onLogout}>Logout</a>
                         </div>
                     ) : (
-                            < a className="arrow" href="/login">Login</a>
+                            <Link className="arrow" to="/login">Login</Link>
                         )}
                 </div>
                 <div className="intro">
@@ -45,10 +46,6 @@ const Home = ({
             </div>
         </div >
     )
-}
-
-Home.defaultProps = {
-    authenticated: false
 }
 
 export default Home;

@@ -23,6 +23,9 @@ class HomeContainer extends Component {
         const { authenticated } = this.props;
         const { handleLogout } = this;
 
+        console.log('Homecontainer: ' + authenticated);
+        console.log(this.props);
+
         return (
             <Home
                 authenticated={authenticated}
@@ -33,8 +36,8 @@ class HomeContainer extends Component {
 }
 
 export default connect(
-    (state) => ({
-        authenticated: state.user.authenticated
+    ({ user }) => ({
+        authenticated: user.get('authenticated')
     }),
     (dispatch) => ({
         UserActions: bindActionCreators(userActions, dispatch)

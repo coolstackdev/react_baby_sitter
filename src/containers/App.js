@@ -32,13 +32,13 @@ class App extends Component {
         app.auth().onAuthStateChanged(user => {
             if (user) {
                 this.setState({
-                    authenticated: true,
+                    isAuthenticated: true,
                     currentUser: user,
                     loading: false
                 });
             } else {
                 this.setState({
-                    authenticated: false,
+                    isAuthenticated: false,
                     currentUser: null,
                     loading: false
                 });
@@ -49,7 +49,7 @@ class App extends Component {
 
     render() {
 
-        const { authenticated, loading } = this.state;
+        const { isAuthenticated, loading } = this.state;
 
         if (loading) {
             return <p>Loading..</p>;
@@ -66,7 +66,7 @@ class App extends Component {
                             exact
                             path="/dashboard"
                             component={DashboardContainer}
-                            authenticated={authenticated}
+                            authenticated={isAuthenticated}
                         />
                         <Route path="/token" component={StripeAuth} />
                         <Route path="/done" component={Done} />

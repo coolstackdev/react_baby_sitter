@@ -19,7 +19,7 @@ class DashboardContainer extends Component {
         return (
             <Dashboard
                 authenticated={authenticated}
-                events={eventData}
+                eventsData={eventData}
                 onLogout={handleLogout}
             />
         )
@@ -29,7 +29,7 @@ class DashboardContainer extends Component {
 export default connect(
     (state) => ({
         eventsData: null,
-        authenticated: state.user.authenticated
+        authenticated: state.user.get('authenticated')
     }),
     (dispatch) => ({
         UserActions: bindActionCreators(userActions, dispatch),

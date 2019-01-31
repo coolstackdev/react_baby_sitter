@@ -1,16 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Dashboard = ({
-    events,
+    eventsData,
+    authenticated,
     onLogout
 }) => {
+    console.log('Dashboard: ' + authenticated);
+
     return (
         <div>
             <header>
                 <div id="top">
-                    <a className="rocketrides" href="/"></a>
+                    <Link className="rocketrides" to="/"></Link>
                     <div className="links">
-                        <a href='/dashboard'> Dashboard</a>
+                        <Link to="/dashboard">Dashboard</Link>
                         <a onClick={onLogout}>Logout</a>
                     </div>
                 </div>
