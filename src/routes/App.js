@@ -10,10 +10,50 @@ import Done from '../containers/Done';
 import Dashboard from '../containers/Dashboard';
 import SetupPayment from '../containers/SetupPayment';
 import StripeAuth from '../containers/StripeAuth';
+import PrivateRoute from '../components/PrivateRoute';
+
+import app from '../components/Firebase/firebase';
 
 class App extends Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            loading: true,
+            authenticated: false,
+            user: null
+        };
+    }
+
+    componentWillMount() {
+        app.auth().onAuthStateChanged(user => {
+            if (user) {
+                this.setState({
+                    authenticated: true,
+                    currentUser: user,
+                    loading: false
+                });
+            } else {
+                this.setState({
+                    authenticated: false,
+                    currentUser: null,
+                    loading: false
+                });
+            }
+
+
+        });
+    }
+
     render() {
+
+        const { authenticated, loading } = this.state;
+
+        if (loading) {
+            return <p>Loading..</p>;
+        }
+
         return (
             <div>
                 <BrowserRouter>
@@ -21,7 +61,12 @@ class App extends Component {
                         <Route path="/" component={Home} exact />
                         <Route path="/login" component={Login} />
                         <Route path="/authorize" component={SetupPayment} />
-                        <Route path="/dashboard" component={Dashboard} />
+                        <PrivateRoute
+                            exact
+                            path="/dashboard"
+                            component={Dashboard}
+                            authenticated={authenticated}
+                        />
                         <Route path="/token" component={StripeAuth} />
                         <Route path="/done" component={Done} />
                     </Switch>
@@ -31,4 +76,6 @@ class App extends Component {
     }
 }
 
+
+/* clean way of setting up the connect. */
 export default App;

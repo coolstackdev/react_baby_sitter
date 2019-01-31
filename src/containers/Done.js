@@ -9,8 +9,7 @@ class Done extends Component {
                     <div id="top">
                         <a className="rocketrides" href="/"></a>
                         <div className="links">
-                            <a href='/dashboard'> Dashboard</a>
-                            <a href='/logout'> Logout</a>
+                            <a href='/login'>Login</a>
                         </div>
                     </div>
                     <div className="intro">

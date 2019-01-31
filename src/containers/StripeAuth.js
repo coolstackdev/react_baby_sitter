@@ -48,19 +48,6 @@ export default class StripeAuth extends Component {
 
             this.redirectPage(url, data);
 
-            // axios.post(url, data)
-            //     .then(function (response) {
-            //         console.log(response);
-            //         if (response.data.success == 1) {
-            //             this.props.history.push("/done");
-            //         } else {
-            //             alert(response.data.msg);
-            //             this.props.history.push("/");
-            //         }
-            //     })
-            //     .catch(function (error) {
-            //         console.log(error);
-            //     });
         } else {
             console.log('not matched');
             this.props.history.push('/');

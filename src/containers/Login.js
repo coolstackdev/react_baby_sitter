@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+
+import app from "../components/Firebase/firebase";
 
 import { loginRequest } from '../actions';
 
 class Login extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -24,13 +26,28 @@ class Login extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        const credential = {
-            email: this.state.email,
-            password: this.state.password
-        };
+        // const credential = {
+        //     email: this.state.email,
+        //     password: this.state.password
+        // };
 
-        this.props.submit(credential);
+        // this.props.submit(credential);
+
+        this.handleSignUp();
     }
+
+    handleSignUp = async event => {
+
+        try {
+            const user = await app
+                .auth()
+                .signInWithEmailAndPassword(this.state.email, this.state.password);
+
+            this.props.history.push("/dashboard");
+        } catch (error) {
+            alert(error);
+        }
+    };
 
     render() {
         return (
@@ -68,4 +85,4 @@ Login.propTypes = {
     submit: PropTypes.func.isRequired
 };
 
-export default withRouter(connect(null, { submit: loginRequest })(Login));
+export default connect(null, { submit: loginRequest })(Login);

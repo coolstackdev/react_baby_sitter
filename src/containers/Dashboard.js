@@ -1,7 +1,25 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
+import app from "../components/Firebase/firebase";
+import store from '../store/store';
+
 class Dashboard extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.onClick = this.handleLogout.bind(this);
+    }
+
+    handleLogout(e) {
+        app.auth().signOut();
+        this.props.history.push("/");
+    }
+
+    componentDidMount() {
+        console.log(store.getState());
+    }
 
     render() {
         return (
@@ -11,7 +29,7 @@ class Dashboard extends Component {
                         <a className="rocketrides" href="/"></a>
                         <div className="links">
                             <a href='/dashboard'> Dashboard</a>
-                            <a href='/logout'> Logout</a>
+                            <a onClick={this.onClick}>Logout</a>
                         </div>
                     </div>
                     <div className="user">
