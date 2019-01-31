@@ -1,7 +1,11 @@
-import { takeLatest } from 'redux-saga/effects';
-import { LOGIN_REQUEST } from "../actions/ActionTypes";
-import { loginSaga } from './userSaga';
+import { all } from 'redux-saga/effects';
 
-export function* rootSaga() {
-    yield takeLatest(LOGIN_REQUEST, loginSaga);
+import { watcherGetEvents } from './eventSaga';
+import { watcherRequestLogout } from './userSaga';
+
+export default function* rootSaga() {
+    yield all([
+        watcherGetEvents(),
+        watcherRequestLogout(),
+    ])
 }

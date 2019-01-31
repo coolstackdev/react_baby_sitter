@@ -1,11 +1,17 @@
-import { call, put } from 'redux-saga/effects';
-import { push } from 'react-router-redux';
+import { call, put, takeEvery } from 'redux-saga/effects';
 import api from "../api/api";
+import * as ActionTypes from '../store/modules/ActionTypes';
 
-export function* loginSaga(action) {
+export function* watcherRequestLogout() {
+    console.log('userSaga watcher');
 
-    const user = yield call(api.user.login, action.user);
-    // yield put(userLoggedIn(user));
+    yield takeEvery(ActionTypes.REQUEST_LOGOUT, workerRequestLogout);
+}
 
+export function* workerRequestLogout() {
+    console.log('userSaga worker');
+
+    yield call(api.user.requestLogout);
+    yield put({ type: ActionTypes.USER_LOGGED_OUT });
 }
 

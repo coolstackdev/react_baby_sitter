@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import axios from 'axios';
-import actions from '../actions';
 
 export default class StripeAuth extends Component {
 

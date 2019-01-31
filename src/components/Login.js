@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-
-import app from "../components/Firebase/firebase";
-
-import { loginRequest } from '../actions';
+import app from "./Firebase/firebase";
 
 class Login extends Component {
 
@@ -16,32 +11,21 @@ class Login extends Component {
         };
 
         this.onChange = this.onChange.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
+        this.onSubmit = this.handleLogin.bind(this);
     }
 
     onChange(e) {
         this.setState({ [e.target.name]: e.target.value });
     }
 
-    onSubmit(e) {
-        e.preventDefault();
-
-        // const credential = {
-        //     email: this.state.email,
-        //     password: this.state.password
-        // };
-
-        // this.props.submit(credential);
-
-        this.handleSignUp();
-    }
-
-    handleSignUp = async event => {
-
+    handleLogin = async event => {
         try {
             const user = await app
                 .auth()
                 .signInWithEmailAndPassword(this.state.email, this.state.password);
+
+            // action dispatch for saving currentUser to state instead of localstorage
+            localStorage.setItem('currentUser', user);
 
             this.props.history.push("/dashboard");
         } catch (error) {
@@ -81,8 +65,4 @@ class Login extends Component {
     }
 }
 
-Login.propTypes = {
-    submit: PropTypes.func.isRequired
-};
-
-export default connect(null, { submit: loginRequest })(Login);
+export default Login;

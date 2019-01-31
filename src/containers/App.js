@@ -2,17 +2,17 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import './App.css';
-import './Style.css';
 
-import Home from '../containers/Home';
-import Login from '../containers/Login';
-import Done from '../containers/Done';
-import Dashboard from '../containers/Dashboard';
-import SetupPayment from '../containers/SetupPayment';
-import StripeAuth from '../containers/StripeAuth';
 import PrivateRoute from '../components/PrivateRoute';
-
 import app from '../components/Firebase/firebase';
+
+import Login from '../components/Login';
+import Done from '../components/Done';
+import DashboardContainer from './DashboardContainer';
+import HomeContainer from './HomeContainer';
+
+import SetupPayment from './SetupPayment';
+import StripeAuth from './StripeAuth';
 
 class App extends Component {
 
@@ -27,6 +27,8 @@ class App extends Component {
     }
 
     componentWillMount() {
+
+        // need to change with state
         app.auth().onAuthStateChanged(user => {
             if (user) {
                 this.setState({
@@ -41,7 +43,6 @@ class App extends Component {
                     loading: false
                 });
             }
-
 
         });
     }
@@ -58,13 +59,13 @@ class App extends Component {
             <div>
                 <BrowserRouter>
                     <Switch>
-                        <Route path="/" component={Home} exact />
+                        <Route path="/" component={HomeContainer} exact />
                         <Route path="/login" component={Login} />
                         <Route path="/authorize" component={SetupPayment} />
                         <PrivateRoute
                             exact
                             path="/dashboard"
-                            component={Dashboard}
+                            component={DashboardContainer}
                             authenticated={authenticated}
                         />
                         <Route path="/token" component={StripeAuth} />
@@ -76,6 +77,4 @@ class App extends Component {
     }
 }
 
-
-/* clean way of setting up the connect. */
 export default App;
