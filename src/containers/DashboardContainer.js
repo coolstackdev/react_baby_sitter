@@ -7,16 +7,18 @@ import * as eventActions from '../store/modules/events';
 
 class DashboardContainer extends Component {
 
-    handleLogout(e) {
+    handleLogout = () => {
         const { UserActions } = this.props;
         UserActions.requestLogout();
     }
 
     render() {
-        const { handleLogout, eventData } = this.props;
+        const { eventData, authenticated } = this.props;
+        const { handleLogout } = this;
 
         return (
             <Dashboard
+                authenticated={authenticated}
                 events={eventData}
                 onLogout={handleLogout}
             />
@@ -26,7 +28,8 @@ class DashboardContainer extends Component {
 
 export default connect(
     (state) => ({
-        eventsData: null
+        eventsData: null,
+        authenticated: state.user.authenticated
     }),
     (dispatch) => ({
         UserActions: bindActionCreators(userActions, dispatch),

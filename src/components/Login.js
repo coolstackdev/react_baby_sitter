@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import app from "./Firebase/firebase";
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as userActions from '../store/modules/user';
 
 class Login extends Component {
 
@@ -25,12 +28,15 @@ class Login extends Component {
     }
 
     handleSignUp = async event => {
+        const { UserActions } = this.props;
+
         try {
             const user = await app
                 .auth()
                 .signInWithEmailAndPassword(this.state.email, this.state.password);
 
-            localStorage.setItem('currentUser', user);
+            var email = user.user.email;
+            UserActions.userLoggedIn(email);
 
             this.props.history.push("/dashboard");
         } catch (error) {
@@ -70,4 +76,11 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default connect(
+    (state) => ({
+        authenticated: state.user.authenticated
+    }),
+    (dispatch) => ({
+        UserActions: bindActionCreators(userActions, dispatch)
+    })
+)(Login);

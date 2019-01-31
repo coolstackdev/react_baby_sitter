@@ -20,7 +20,8 @@ class HomeContainer extends Component {
     }
 
     render() {
-        const { authenticated, handleLogout } = this.props;
+        const { authenticated } = this.props;
+        const { handleLogout } = this;
 
         return (
             <Home
