@@ -13,11 +13,11 @@ class DashboardContainer extends Component {
     }
 
     render() {
-        const { handleLogout } = this.props;
+        const { handleLogout, eventData } = this.props;
 
         return (
             <Dashboard
-                events={null}
+                events={eventData}
                 onLogout={handleLogout}
             />
         )
@@ -26,7 +26,7 @@ class DashboardContainer extends Component {
 
 export default connect(
     (state) => ({
-        eventsData: state.event.eventsData
+        eventsData: null
     }),
     (dispatch) => ({
         UserActions: bindActionCreators(userActions, dispatch),

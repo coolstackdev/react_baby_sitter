@@ -11,20 +11,25 @@ class Login extends Component {
         };
 
         this.onChange = this.onChange.bind(this);
-        this.onSubmit = this.handleLogin.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
     }
 
     onChange(e) {
         this.setState({ [e.target.name]: e.target.value });
     }
 
-    handleLogin = async event => {
+    onSubmit(e) {
+        e.preventDefault();
+
+        this.handleSignUp();
+    }
+
+    handleSignUp = async event => {
         try {
             const user = await app
                 .auth()
                 .signInWithEmailAndPassword(this.state.email, this.state.password);
 
-            // action dispatch for saving currentUser to state instead of localstorage
             localStorage.setItem('currentUser', user);
 
             this.props.history.push("/dashboard");
