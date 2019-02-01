@@ -12,14 +12,6 @@ class DashboardContainer extends Component {
         UserActions.requestLogout();
     }
 
-    componentWillMount() {
-        console.log('dashboard container will mount');
-        console.log(this.props.authenticated);
-
-        if (!this.props.authenticated)
-            this.props.history.push("/");
-    }
-
     render() {
         const { userData, eventsData, authenticated } = this.props;
         const { handleLogout } = this;

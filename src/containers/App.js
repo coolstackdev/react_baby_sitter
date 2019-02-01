@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import './App.css';
 
 import PrivateRoute from '../components/PrivateRoute';
-import app from '../components/Firebase/firebase';
 
 import Login from '../components/Login';
 import Done from '../components/Done';
@@ -16,44 +16,8 @@ import StripeAuth from './StripeAuth';
 
 class App extends Component {
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            loading: true,
-            authenticated: false,
-            user: null
-        };
-    }
-
-    componentWillMount() {
-
-        // need to change with state
-        app.auth().onAuthStateChanged(user => {
-            if (user) {
-                this.setState({
-                    authenticated: true,
-                    currentUser: user,
-                    loading: false
-                });
-            } else {
-                this.setState({
-                    authenticated: false,
-                    currentUser: null,
-                    loading: false
-                });
-            }
-
-        });
-    }
-
     render() {
-
-        const { authenticated, loading } = this.state;
-
-        if (loading) {
-            return <p>Loading..</p>;
-        }
+        const { authenticated } = this.props;
 
         return (
             <div>
@@ -77,4 +41,8 @@ class App extends Component {
     }
 }
 
-export default App;
+export default connect(
+    (state) => ({
+        authenticated: state.user.get('authenticated')
+    })
+)(App);
