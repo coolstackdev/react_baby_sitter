@@ -1,12 +1,33 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Map, toJS } from 'react-router-dom';
+
+const EventItem = ({ parentName, eventEndDate, eventPrice }) => (
+    <div className="row">
+        <div className="cell name">{parentName}</div>
+        <div className="cell date">{eventEndDate}</div>
+        <div className="cell price">${eventPrice}</div>
+    </div>
+)
 
 const Dashboard = ({
+    userData,
     eventsData,
     authenticated,
     onLogout
 }) => {
-    console.log('Dashboard: ' + authenticated);
+
+    const eventItems = eventsData.map(
+        event => {
+            const { parentName, eventEndDate, eventPrice } = event;
+            return (
+                <EventItem
+                    parentName={parentName}
+                    eventEndDate={eventEndDate}
+                    eventPrice={eventPrice}
+                />
+            )
+        }
+    )
 
     return (
         <div>
@@ -21,19 +42,19 @@ const Dashboard = ({
                 <div className="user">
                     <div className="block profile">
                         <div className="photo"></div>
-                        <p> Pilot since January 2018</p>
-                        <h1> John </h1>
+                        <p>{userData.member_since}</p>
+                        <h1> {userData.firstname} </h1>
                         <div className="rating"></div>
                     </div>
                     <div className="block week">
                         <p> This Week</p>
-                        <h1> $25000 </h1>
-                        <h2> 23 Rides</h2>
+                        <h1> ${userData.earnMoneyCurrentWeek} </h1>
+                        <h2> {userData.eventCount} Rides</h2>
                     </div>
                     <div className="block available">
                         <p> Your Balance</p>
-                        <h1> $1000</h1>
-                        <h2> $900 Available</h2>
+                        <h1> ${userData.balance}</h1>
+                        <h2> ${userData.available} Available</h2>
                     </div>
                     <div className="block stripe">
                         <a className="button" href='/stripe/transfers'> View Transfers</a>
@@ -47,20 +68,7 @@ const Dashboard = ({
                 <section className="rides">
                     <h4>Recent Rides</h4>
                     <div className="list">
-                        <div className="row">
-                            <div className="cell name">Ruth H.</div>
-                            <div className="cell date">Last Monday at 2:07 PM</div>
-                            <div className="cell price">$51.76</div>
-                        </div>
-                        <div className="row">
-                            <div className="cell name">Ruth H.</div>
-                            <div className="cell date">Last Monday at 2:07 PM</div>
-                            <div className="cell price">$22.40</div></div>
-                        <div className="row">
-                            <div className="cell name">Kathleen B.</div>
-                            <div className="cell date">Last Monday at 2:07 PM</div>
-                            <div className="cell price">$42.34</div>
-                        </div>
+                        {eventItems}
                     </div>
                 </section>
             </div>

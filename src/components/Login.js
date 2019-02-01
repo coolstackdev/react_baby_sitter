@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 import app from "./Firebase/firebase";
 import * as userActions from '../store/modules/user';
+import * as eventActions from '../store/modules/events';
 
 class Login extends Component {
 
@@ -30,7 +31,7 @@ class Login extends Component {
     }
 
     handleSignUp = async event => {
-        const { UserActions } = this.props;
+        const { UserActions, EventActions } = this.props;
 
         try {
             const user = await app
@@ -39,6 +40,7 @@ class Login extends Component {
 
             var email = user.user.email;
             UserActions.userLoggedIn(email);
+            EventActions.requestEvents(email);
 
             this.props.history.push("/dashboard");
         } catch (error) {
@@ -80,9 +82,10 @@ class Login extends Component {
 
 export default connect(
     (state) => ({
-        authenticated: state.user.authenticated
+        authenticated: state.user.get('authenticated')
     }),
     (dispatch) => ({
-        UserActions: bindActionCreators(userActions, dispatch)
+        UserActions: bindActionCreators(userActions, dispatch),
+        EventActions: bindActionCreators(eventActions, dispatch)
     })
 )(Login);

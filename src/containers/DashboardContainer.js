@@ -12,14 +12,23 @@ class DashboardContainer extends Component {
         UserActions.requestLogout();
     }
 
+    componentWillMount() {
+        console.log('dashboard container will mount');
+        console.log(this.props.authenticated);
+
+        if (!this.props.authenticated)
+            this.props.history.push("/");
+    }
+
     render() {
-        const { eventData, authenticated } = this.props;
+        const { userData, eventsData, authenticated } = this.props;
         const { handleLogout } = this;
 
         return (
             <Dashboard
                 authenticated={authenticated}
-                eventsData={eventData}
+                userData={userData}
+                eventsData={eventsData}
                 onLogout={handleLogout}
             />
         )
@@ -28,7 +37,8 @@ class DashboardContainer extends Component {
 
 export default connect(
     (state) => ({
-        eventsData: null,
+        userData: state.events.get('userData'),
+        eventsData: state.events.get('events'),
         authenticated: state.user.get('authenticated')
     }),
     (dispatch) => ({
