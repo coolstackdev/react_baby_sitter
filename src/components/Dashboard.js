@@ -19,9 +19,10 @@ const Dashboard = ({
 
     const eventItems = eventsData.map(
         event => {
-            const { parentName, eventEndDate, eventPrice } = event;
+            const { id, parentName, eventEndDate, eventPrice } = event;
             return (
                 <EventItem
+                    key={id}
                     parentName={parentName}
                     eventEndDate={eventEndDate}
                     eventPrice={eventPrice}
@@ -43,7 +44,9 @@ const Dashboard = ({
                 <div className="user">
                     <div className="block profile">
                         <div className="photo"></div>
-                        <p>{userData.member_since}</p>
+                        <p>
+                            Member Since {userData.created_at}
+                        </p>
                         <h1> {userData.firstname} </h1>
                         <div className="rating"></div>
                     </div>

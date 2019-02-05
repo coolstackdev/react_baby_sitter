@@ -4,7 +4,15 @@ import * as ActionTypes from './ActionTypes';
 
 const initialState = Map({
     currentUser: '',
-    userData: null,
+    userData: {
+        'firstname': '',
+        'stripe_id': '',
+        'created_at': '',
+        'eventCount': '',
+        'earnMoneyCurrentWeek': '',
+        'balance': '',
+        'available': ''
+    },
     events: List()
 });
 

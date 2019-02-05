@@ -43,6 +43,7 @@ class Login extends Component {
             var uid = user.user.uid;
 
             localStorage.setItem('uid', uid);
+            localStorage.setItem('userEmail', user.user.email);
 
             UserActions.userLoggedIn(uid);
             EventActions.requestEvents(uid);
