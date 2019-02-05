@@ -38,9 +38,14 @@ class Login extends Component {
                 .auth()
                 .signInWithEmailAndPassword(this.state.email, this.state.password);
 
-            var email = user.user.email;
-            UserActions.userLoggedIn(email);
-            EventActions.requestEvents(email);
+            console.log('uid: ' + user.user.uid);
+
+            var uid = user.user.uid;
+
+            localStorage.setItem('uid', uid);
+
+            UserActions.userLoggedIn(uid);
+            EventActions.requestEvents(uid);
 
             this.props.history.push("/dashboard");
         } catch (error) {

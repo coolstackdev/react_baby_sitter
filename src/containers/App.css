@@ -17,6 +17,12 @@ div.checkmark a.button {
     width: 250px;
 }
 
+@media print {
+  html, body {
+    display: none;
+  }
+}
+
 /**
  * Rocket Rides CSS Stylesheet.
  */

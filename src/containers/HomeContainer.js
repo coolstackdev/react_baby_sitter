@@ -6,13 +6,13 @@ import * as userActions from '../store/modules/user';
 
 class HomeContainer extends Component {
 
-    componentDidMount() {
-        const search = this.props.location.search;
-        const params = new URLSearchParams(search);
-        const uid = params.get('uid');
+    // componentDidMount() {
+    //     const search = this.props.location.search;
+    //     const params = new URLSearchParams(search);
+    //     const uid = params.get('uid');
 
-        localStorage.setItem('uid', uid);
-    }
+    //     localStorage.setItem('uid', uid);
+    // }
 
     handleLogout = () => {
         const { UserActions } = this.props;
@@ -23,8 +23,7 @@ class HomeContainer extends Component {
         const { authenticated } = this.props;
         const { handleLogout } = this;
 
-        console.log('Homecontainer: ' + authenticated);
-        console.log(this.props);
+        console.log('Homecontainer authentication: ' + authenticated);
 
         return (
             <Home

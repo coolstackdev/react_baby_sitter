@@ -3,11 +3,11 @@ import app from '../components/Firebase/firebase';
 
 export default {
     user: {
-        requestEvents: email => {
+        requestEvents: uid => {
             var userData = {
                 'firstname': 'Jane',
                 'uid': '123',
-                'stripe_id': 'acc_001',
+                'stripe_id': '',
                 'member_since': '2019-01-01',
                 'eventCount': '10',
                 'earnMoneyCurrentWeek': '12500',

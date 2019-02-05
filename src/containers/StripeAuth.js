@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import axios from 'axios';
+import { config } from '../config';
 
 export default class StripeAuth extends Component {
 
@@ -43,7 +44,7 @@ export default class StripeAuth extends Component {
                 code: code
             };
 
-            var url = "https://us-central1-lightning-bug-sitters.cloudfunctions.net/stripeAuth";
+            var url = config.firebaseStripeAuth;
 
             this.redirectPage(url, data);
 

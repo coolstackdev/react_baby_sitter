@@ -5,12 +5,10 @@ import { connect } from 'react-redux';
 import './App.css';
 
 import PrivateRoute from '../components/PrivateRoute';
-
 import Login from '../components/Login';
 import Done from '../components/Done';
 import DashboardContainer from './DashboardContainer';
 import HomeContainer from './HomeContainer';
-
 import SetupPayment from './SetupPayment';
 import StripeAuth from './StripeAuth';
 

@@ -14,6 +14,7 @@ const Dashboard = ({
     eventsData,
     authenticated,
     onLogout
+
 }) => {
 
     const eventItems = eventsData.map(

@@ -7,6 +7,16 @@ import * as eventActions from '../store/modules/events';
 
 class DashboardContainer extends Component {
 
+    constructor(props) {
+        super(props);
+
+        const currentUser = this.props.userData;
+        if (currentUser.stripe_id == '') {
+            this.props.history.push("/authorize");
+        }
+
+    }
+
     handleLogout = () => {
         const { UserActions } = this.props;
         UserActions.requestLogout();
