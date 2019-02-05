@@ -19,10 +19,10 @@ const Dashboard = ({
 
     const eventItems = eventsData.map(
         event => {
-            const { id, parentName, eventEndDate, eventPrice } = event;
+            const { key, parentName, eventEndDate, eventPrice } = event;
             return (
                 <EventItem
-                    key={id}
+                    key={key}
                     parentName={parentName}
                     eventEndDate={eventEndDate}
                     eventPrice={eventPrice}
