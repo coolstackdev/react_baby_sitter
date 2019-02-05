@@ -61,7 +61,7 @@ const Dashboard = ({
                         <h2> ${userData.available} Available</h2>
                     </div>
                     <div className="block stripe">
-                        <a className="button" href='/stripe/transfers'> View Transfers</a>
+                        <Link className="button" to="/transfers">View Transfers</Link>
                         <form action='/stripe/payout' method='POST' autoComplete='off'>
                             <input type='submit' value='Pay Out Now' />
                         </form>

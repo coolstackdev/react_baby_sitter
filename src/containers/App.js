@@ -11,6 +11,7 @@ import DashboardContainer from './DashboardContainer';
 import HomeContainer from './HomeContainer';
 import SetupPayment from './SetupPayment';
 import StripeAuth from './StripeAuth';
+import Transfers from './Transfers';
 
 class App extends Component {
 
@@ -32,6 +33,12 @@ class App extends Component {
                         />
                         <Route path="/token" component={StripeAuth} />
                         <Route path="/done" component={Done} />
+                        <PrivateRoute
+                            exact
+                            path="/transfers"
+                            component={Transfers}
+                            authenticated={authenticated}
+                        />
                     </Switch>
                 </BrowserRouter>
             </div>

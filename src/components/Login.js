@@ -38,7 +38,7 @@ class Login extends Component {
                 .auth()
                 .signInWithEmailAndPassword(this.state.email, this.state.password);
 
-            console.log('uid: ' + user.user.uid);
+            console.log(user);
 
             var uid = user.user.uid;
 
