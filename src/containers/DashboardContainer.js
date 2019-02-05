@@ -9,7 +9,7 @@ class DashboardContainer extends Component {
 
     componentWillReceiveProps(props) {
         const currentUser = props.userData;
-        if (!currentUser && currentUser.stripe_id != '') {
+        if (currentUser.stripe_id == '') {
             props.history.push("/authorize");
         }
     }
