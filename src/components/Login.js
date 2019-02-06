@@ -62,7 +62,7 @@ class Login extends Component {
                         <Link className="arrow" to="/login">Login</Link>
                     </div>
                     <div className="title">
-                        <h1>Log into your babysitter account</h1>
+                        <h1>Log into your account</h1>
                     </div>
                 </header>
                 <div id="content">
