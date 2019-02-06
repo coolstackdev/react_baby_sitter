@@ -488,7 +488,7 @@ a.button:hover {
 input[type='submit']:active,
 button:active,
 a.button:active {
-  background-color: #01966f;
+  background-color: #f2ff7d;
 }
 
 header button,
@@ -507,7 +507,7 @@ header button:active,
 header a.button:active,
 header input[type='submit']:active {
   background-color: #fff;
-  color: #01966f;
+  color: #f2ff7d;
 }
 
 form a.button {
