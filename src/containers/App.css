@@ -676,9 +676,11 @@ form a.button {
   background-image: url(../assets/images/rating.svg);
 }
 
+/*
 .user .block.stripe .button {
   margin: 0;
 }
+*/
 
 /* Pilot Onboarding Options */
 
@@ -891,7 +893,7 @@ form a.button {
   }
 
   .user .block.stripe a.button,
-  .user .block.stripe input[type='submit'] {
+  .user .block.stripe a.form_button {
     height: 32px;
     line-height: 32px;
     font-size: 15px;
@@ -901,8 +903,8 @@ form a.button {
     margin: 0 0 10px;
   }
 
-  .user .block.stripe input[type='submit'] {
-    margin: 0px 0 15px;
+  .user .block.stripe a.form_button {
+    margin: 10px 0 15px;
   }
 
   .user .block + .block {

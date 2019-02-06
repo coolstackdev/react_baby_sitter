@@ -12,6 +12,7 @@ import HomeContainer from './HomeContainer';
 import SetupPayment from './SetupPayment';
 import StripeAuth from './StripeAuth';
 import Transfers from './Transfers';
+import Payout from './Payout';
 
 class App extends Component {
 
@@ -37,6 +38,12 @@ class App extends Component {
                             exact
                             path="/transfers"
                             component={Transfers}
+                            authenticated={authenticated}
+                        />
+                        <PrivateRoute
+                            exact
+                            path="/payout"
+                            component={Payout}
                             authenticated={authenticated}
                         />
                     </Switch>

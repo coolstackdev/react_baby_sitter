@@ -62,9 +62,7 @@ const Dashboard = ({
                     </div>
                     <div className="block stripe">
                         <Link className="button" to="/transfers">View Transfers</Link>
-                        <form action='/stripe/payout' method='POST' autoComplete='off'>
-                            <input type='submit' value='Pay Out Now' />
-                        </form>
+                        <Link className="button form_button" to="/payout">Pay Out Now</Link>
                     </div>
                 </div>
             </header >

@@ -46,7 +46,6 @@ class Login extends Component {
             localStorage.setItem('userEmail', user.user.email);
 
             UserActions.userLoggedIn(uid);
-            EventActions.requestEvents(uid);
 
             this.props.history.push("/dashboard");
         } catch (error) {

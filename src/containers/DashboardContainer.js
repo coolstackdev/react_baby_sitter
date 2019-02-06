@@ -14,6 +14,13 @@ class DashboardContainer extends Component {
         }
     }
 
+    componentWillMount() {
+        var uid = localStorage.getItem('uid');
+
+        const { EventActions } = this.props;
+        EventActions.requestEvents(uid);
+    }
+
     handleLogout = () => {
         const { UserActions } = this.props;
         UserActions.requestLogout();
