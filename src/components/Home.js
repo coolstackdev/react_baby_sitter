@@ -26,7 +26,7 @@ const Home = ({
                 <div className="intro">
                     <div className="pilots">
                         <h1>Get ready</h1>
-                        <h2>Lightning Bug Babysitter is the world’s leading platform. <br /> Join our elite team of Lightning Bug Babysitters.</h2>
+                        <h2>Join our elite team of Lightning Bug Babysitters.</h2>
                         <br />
                     </div>
                 </div>
