@@ -13,7 +13,7 @@ const Home = ({
                     <p className="slogan">"Quality sitters <br /> on the fly"</p>
 
                     {authenticated ? (
-                        <div className="links">
+                        <div className="links dashboard_links">
                             <Link to="/dashboard">Dashboard</Link>
                             <a onClick={onLogout}>Logout</a>
                         </div>
