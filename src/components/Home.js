@@ -26,8 +26,8 @@ const Home = ({
                 <div className="intro">
                     <div className="pilots">
                         <h1>Get ready</h1>
-                        <h2>Lightning Bug Babysitter is the world’s leading platform. <br /> Join our elite team of Lightning Bug Babysitting and help people.</h2>
-
+                        <h2>Lightning Bug Babysitter is the world’s leading platform. <br /> Join our elite team of Lightning Bug Babysitters and help people.</h2>
+                        <br />
                     </div>
                 </div>
             </header>
@@ -39,7 +39,8 @@ const Home = ({
                     </section>
                     <section className="schedule">
                         <h3> Be Your Own Boss</h3>
-                        <p> Join the Lightning Bug Sitters babysitting team — you pick your own schedule.</p>
+                        <p> Join the Lightning Bug Sitters babysitting team</p>
+                        <p className="invisible"> Pick up your own schedule </p>
                     </section>
                     <section className="earnings">
                         <h3> Earn more</h3>

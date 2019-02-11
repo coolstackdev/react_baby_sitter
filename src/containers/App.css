@@ -18,7 +18,9 @@ p.slogan {
   font-size: 25px;
 }
 
-
+.features p.invisible {
+  visibility: hidden;
+}
 
 .links {
   float: right;
