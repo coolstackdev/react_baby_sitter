@@ -62,7 +62,6 @@ class Login extends Component {
                         <p className="slogan">"Quality sitters <br /> on the fly"</p>
 
                     </div>
-                    <div class="clear"></div>
                     <div className="title">
                         <h1>Log into your account</h1>
                     </div>
