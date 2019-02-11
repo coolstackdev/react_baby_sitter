@@ -59,7 +59,7 @@ class Login extends Component {
                 <header>
                     <div id="top">
                         <Link className="rocketrides" to="/"></Link>
-                        <p class="slogan">"Quality sitters <br /> on the fly"</p>
+                        <p className="slogan">"Quality sitters <br /> on the fly"</p>
 
                         <div className="links">
                             <Link className="arrow" to="/login">Login</Link>

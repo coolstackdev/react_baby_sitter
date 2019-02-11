@@ -36,8 +36,8 @@ const Dashboard = ({
             <header>
                 <div id="top">
                     <Link className="rocketrides" to="/"></Link>
-                    <p class="slogan">"Quality sitters <br /> on the fly"</p>
-                    <div className="links">
+                    <p className="slogan">"Quality sitters <br /> on the fly"</p>
+                    <div className="links dashboard_links">
                         <Link to="/dashboard">Dashboard</Link>
                         <a onClick={onLogout}>Logout</a>
                     </div>

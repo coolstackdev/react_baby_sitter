@@ -10,7 +10,7 @@ const Home = ({
             <header>
                 <div id="top">
                     <Link className="rocketrides" to="/"></Link>
-                    <p class="slogan">"Quality sitters <br /> on the fly"</p>
+                    <p className="slogan">"Quality sitters <br /> on the fly"</p>
 
                     {authenticated ? (
                         <div className="links">
