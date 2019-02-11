@@ -36,12 +36,13 @@ const Dashboard = ({
             <header>
                 <div id="top">
                     <Link className="rocketrides" to="/"></Link>
+                    <p class="slogan">"Quality sitters <br /> on the fly"</p>
                     <div className="links">
                         <Link to="/dashboard">Dashboard</Link>
                         <a onClick={onLogout}>Logout</a>
                     </div>
                 </div>
-                <div className="user">
+                <div className="user intro">
                     <div className="block profile">
                         <div className="photo"></div>
                         <p>
@@ -53,7 +54,7 @@ const Dashboard = ({
                     <div className="block week">
                         <p> This Week</p>
                         <h1> ${userData.earnMoneyCurrentWeek} </h1>
-                        <h2> {userData.eventCount} Rides</h2>
+                        <h2> {userData.eventCount} Babysitting Events</h2>
                     </div>
                     <div className="block available">
                         <p> Your Balance</p>
@@ -68,7 +69,7 @@ const Dashboard = ({
             </header >
             <div id="content">
                 <section className="rides">
-                    <h4>Recent Rides</h4>
+                    <h4>Recent Babysitting Events</h4>
                     <div className="list">
                         {eventItems}
                     </div>

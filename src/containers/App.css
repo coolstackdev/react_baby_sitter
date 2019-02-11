@@ -3,7 +3,27 @@
   src: local('LightningFont'), url('../assets/fonts/FilsonProBold.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'LightningFontItalic';
+  src: local('LightningFontItalic'), url('../assets/fonts/FilsonProBold-Italic.ttf') format('truetype');
+}
+
 /* custom styles */
+
+p.slogan {
+  font-family: 'LightningFontItalic', Fallback, sans-serif;
+  color: white;
+  margin-top: 50px;
+  line-height: 30px;
+  font-size: 25px;
+}
+
+
+
+.links {
+  float: right;
+  margin-left: 400px;
+}
 
 #root {
     width: 100%;
@@ -81,7 +101,6 @@ section {
 #top,
 .annotation {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
   max-width: 800px;
@@ -123,17 +142,16 @@ a.arrow {
 /* Header, Top Bar, Navigation */
 
 #top {
-  height: 60px;
   line-height: 60px;
   font-size: 17px;
   font-weight: bold;
+  width: 100%;
 }
 
 #top .rocketrides {
-  flex: 1;
   height: 100px;
   width: 100px;
-  margin-top: 50px;
+  margin-top: 20px;
   padding-left: 75px;
   background: url(../assets/images/logo.png) left center no-repeat;
   background-size: contain;
@@ -144,7 +162,16 @@ a.arrow {
 }
 
 .title {
-  margin: 40px 0;
+  margin: 60px 0;
+}
+
+.title h1{
+  font-size: 45px;
+  line-height: 45px;
+}
+
+.clear {
+  clear: both;
 }
 
 nav {
@@ -524,6 +551,7 @@ form a.button {
   width: 100%;
   max-width: 800px;
   padding: 60px 0;
+  margin-top: 30px;
 }
 
 .intro .pilots {
@@ -812,6 +840,14 @@ form a.button {
     padding: 0 15px;
   }
 
+  p.slogan {
+    margin-top: 20px;
+  }
+
+  .links {
+    margin-left: 20px;
+  }
+
   #top .links a {
     margin-left: 10px;
   }
@@ -830,6 +866,10 @@ form a.button {
   }
 
   .intro h1 {
+    font-size: 34px;
+  }
+
+  .title h1 {
     font-size: 34px;
   }
 
