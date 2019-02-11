@@ -12,7 +12,7 @@ class DashboardContainer extends Component {
         console.log(currentUser);
 
         if (currentUser != null) {
-            if (!currentUser.hasOwnProperty('stripe_id')) {
+            if (!currentUser.hasOwnProperty('stripe_id') || currentUser.stripe_id == '') {
                 props.history.push("/authorize");
             }
         }

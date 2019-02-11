@@ -17,19 +17,23 @@ const Dashboard = ({
 
 }) => {
 
-    const eventItems = eventsData.map(
-        event => {
-            const { key, parentName, eventEndDate, eventPrice } = event;
-            return (
-                <EventItem
-                    key={key}
-                    parentName={parentName}
-                    eventEndDate={eventEndDate}
-                    eventPrice={eventPrice}
-                />
-            )
-        }
-    )
+    if (eventsData != null) {
+        const eventItems = eventsData.map(
+            event => {
+                const { key, parentName, eventEndDate, eventPrice } = event;
+                return (
+                    <EventItem
+                        key={key}
+                        parentName={parentName}
+                        eventEndDate={eventEndDate}
+                        eventPrice={eventPrice}
+                    />
+                )
+            }
+        )
+    } else {
+        const eventItems = {};
+    }
 
     return (
         <div>
