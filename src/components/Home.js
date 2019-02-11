@@ -39,7 +39,7 @@ const Home = ({
                     </section>
                     <section className="schedule">
                         <h3> Be Your Own Boss</h3>
-                        <p> Join the Lightning Bug Sitters babysitting team</p>
+                        <p> Join the Lightning Bug Babysitters team.</p>
                         <p className="invisible"> Pick up your own schedule </p>
                     </section>
                     <section className="earnings">

@@ -61,9 +61,6 @@ class Login extends Component {
                         <Link className="rocketrides" to="/"></Link>
                         <p className="slogan">"Quality sitters <br /> on the fly"</p>
 
-                        <div className="links">
-                            <Link className="arrow" to="/login">Login</Link>
-                        </div>
                     </div>
                     <div class="clear"></div>
                     <div className="title">
