@@ -26,7 +26,7 @@ const Home = ({
                 <div className="intro">
                     <div className="pilots">
                         <h1>Get ready</h1>
-                        <h2>Join the elite Lightning Bug Babysitters team.</h2>
+                        <h2>Join our elite Lightning Bug Babysitters team.</h2>
                         <br />
                     </div>
                 </div>
@@ -34,8 +34,8 @@ const Home = ({
             <div id="content">
                 <div className="features">
                     <section className="app">
-                        <h3> Augmented reality app</h3>
-                        <p> Ready, set, download. Get weather and air traffic updates, directions, and 24/7 support.</p>
+                        <h3> Lightning Bug app for IOS and Android</h3>
+                        <p> Sign up, login, and start earning today!</p>
                     </section>
                     <section className="schedule">
                         <h3> Be Your Own Boss</h3>
