@@ -8,10 +8,10 @@ class Done extends Component {
             <div>
                 <header>
                     <div id="top">
-                        <Link className="rocketrides" to="/"></Link>
+                        <a className="rocketrides" href="/"></a>
                         <p className="slogan">"Quality sitters <br /> on the fly"</p>
                         <div className="links">
-                            <Link to="/login">Login</Link>
+                            <a className="button" href="/login">Login</a>
                         </div>
                     </div>
                     <div className="intro">
