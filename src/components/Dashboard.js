@@ -57,9 +57,10 @@ const Dashboard = ({
                         <h2> {userData.eventCount} Babysitting Events</h2>
                     </div>
                     <div className="block available">
-                        <p> Your Balance</p>
-                        <h1> ${userData.balance}</h1>
-                        <h2> ${userData.available} Available</h2>
+                        <p> Pending Balance</p>
+                        <h1> ${userData.pending}</h1>
+                        <p> Available Balance</p>
+                        <h1> ${userData.available}</h1>
                     </div>
                     <div className="block stripe">
                         <Link className="button" to="/transfers">View Transfers</Link>
