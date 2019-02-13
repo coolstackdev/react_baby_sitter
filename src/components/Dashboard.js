@@ -49,7 +49,7 @@ const Dashboard = ({
                             Member Since {userData.created_at}
                         </p>
                         <h1> {userData.firstname} </h1>
-                        <div className="rating"></div>
+                        {/* <div className="rating"></div> */}
                     </div>
                     <div className="block week">
                         <p> This Week</p>
