@@ -11,7 +11,7 @@ class Done extends Component {
                         <a className="rocketrides" href="/"></a>
                         <p className="slogan">"Quality sitters <br /> on the fly"</p>
                         <div className="links">
-                            <a className="button" href="/login">Login</a>
+                            <Link className="arrow" to="/login">Login</Link>
                         </div>
                     </div>
                     <div className="intro">
@@ -28,7 +28,7 @@ class Done extends Component {
                     </div>
                 </div>
                 <div className="annotation info">
-                    <p>The Connect Express onboarding flow is now complete! The platform can now use a simple API call to retrieve the Stripe account ID that was just created and save it to its database. This Stripe account ID can then be used to retrieve the sitter's balance, as a destination for payments, or to create instant payouts.</p>
+                    <p>The Connect Express onboarding flow is now complete!</p>
                 </div>
             </div>
         )

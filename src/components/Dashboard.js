@@ -17,20 +17,21 @@ const Dashboard = ({
 
 }) => {
 
-    const eventItems = eventsData.map(
-        event => {
-            const { key, parentName, eventEndDate, eventPrice } = event;
-            return (
-                <EventItem
-                    key={key}
-                    parentName={parentName}
-                    eventEndDate={eventEndDate}
-                    eventPrice={eventPrice}
-                />
-            )
-        }
-    )
-
+    if (eventsData != null) {
+        var eventItems = eventsData.map(
+            event => {
+                const { key, parentName, eventEndDate, eventPrice } = event;
+                return (
+                    <EventItem
+                        key={key}
+                        parentName={parentName}
+                        eventEndDate={eventEndDate}
+                        eventPrice={eventPrice}
+                    />
+                )
+            }
+        )
+    }
     return (
         <div>
             <header>
@@ -63,17 +64,26 @@ const Dashboard = ({
                         <h1> ${userData.available}</h1>
                     </div>
                     <div className="block stripe">
-                        <Link className="button" to="/transfers">View Transfers</Link>
-                        <Link className="button form_button" to="/payout">Pay Out Now</Link>
+                        <Link className="button btn_view_transfer" to="/transfers">View Transfers</Link>
+                        {userData.available > 0 ? (
+                            <Link className="button form_button btn_payout" to="/payout">Pay Out Now</Link>
+                        ) : (
+                                <Link className="button form_button btn_payout" to="#" disabled>Pay Out Now</Link>
+                            )}
                     </div>
                 </div>
             </header >
             <div id="content">
                 <section className="rides">
                     <h4>Recent Babysitting Events</h4>
-                    <div className="list">
-                        {eventItems}
-                    </div>
+                    {eventItems ? (
+                        <div className="list">
+                            {eventItems}
+                        </div>) : (
+                            <div className="list">
+                            </div>
+                        )
+                    }
                 </section>
             </div>
         </div >

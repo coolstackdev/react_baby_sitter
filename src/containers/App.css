@@ -45,7 +45,7 @@ div.checkmark {
 }
 
 div.checkmark a.button {
-    width: 250px;
+    width: 221px;
 }
 
 @media print {
@@ -478,6 +478,14 @@ fieldset .row.date input:last-child {
   flex: 1;
 }
 
+.btn_view_transfer {
+  margin-top: 0 !important;
+}
+
+.btn_payout {
+  margin-top: 20px !important;
+}
+
 input[type='submit'],
 button,
 a.button {
@@ -495,15 +503,6 @@ a.button {
   cursor: pointer;
   outline: none;
   -webkit-appearance: none;
-}
-
-#content a.button::after {
-  content: '';
-  position: absolute;
-  width: 8px;
-  height: 13px;
-  margin: 5px 10px;
-  background: url(../assets/images/arrow-white.svg) right center no-repeat;
 }
 
 input[type='submit'].secondary {
@@ -552,7 +551,6 @@ form a.button {
 /* Home */
 
 .intro {
-  display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -582,7 +580,6 @@ form a.button {
 .intro a.button {
   width: 175px;
   height: 44px;
-  margin: 30px 0 0 0;
   padding: 0 25px;
   line-height: 44px;
   text-align: left;
@@ -636,18 +633,18 @@ form a.button {
 /* User Information */
 
 .user {
-  display: flex;
   width: 100%;
-  max-width: 900px;
+  max-width: 1000px;
   padding: 40px 0;
 }
 
 .user .block {
   position: relative;
+  float: left;
 }
 
 .user .block + .block {
-  margin-left: 40px;
+  margin-left: 60px;
 }
 
 .user .block h1 {
@@ -909,7 +906,6 @@ form a.button {
   }
 
   .user .block {
-    flex: 1;
     min-width: 150px;
     margin: 0 0 20px;
   }
@@ -942,7 +938,7 @@ form a.button {
   }
 
   .user .block + .block {
-    margin: 0;
+    margin: 10px;
   }
 
   nav ol {
